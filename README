@@ -1,5 +1,7 @@
-This is what I use to work with rails in vim.  If you want to try it out, copy all of the folders into your 
-.vim directory and copy .vimrc to your home directory.
+This is what I use to work with rails in vim.  I like to have very IDE-like behavior since I do a ton of 
+jumping around between files within rails projects and I never liked leaving tons of buffers open.  
+
+To use: copy all of the folders into your .vim directory and copy .vimrc to your home directory.
 
 Contains:
 
