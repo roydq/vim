@@ -1,0 +1,10 @@
+This is what I use to work with rails in vim.  If you want to try it out, copy all of the folders into your 
+.vim directory and copy .vimrc to your home directory.
+
+Contains:
+
+rails.vim
+NERD_tree.vim
+buftabs.vim (simple buffer list in status bar)
+bclose.vim (closes buffers without destroying window arrangement)
+vividchalk theme
