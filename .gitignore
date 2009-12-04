@@ -1,0 +1,11 @@
+.DS_Store
+thumbs.db
+log/*.log
+tmp/**/*
+public/uploaded_images/*
+.loadpath
+db/*.sqlite3
+*.tmproj
+*.swp
+*.swo
+*~
