@@ -7,6 +7,8 @@ set hidden
 " Use a competent leader
 let mapleader=","
 
+" Set quickbuf hotkey
+let g:qb_hotkey="t"
 
 " For switching between splits
 nnoremap <Up> <C-w><Up>
@@ -19,7 +21,8 @@ nnoremap <C-Right> :bn<CR>
 nnoremap <C-Left> :bp<CR>
 
 " Close buffers the right way
-nnoremap :bc<CR> :Bclose<CR>
+nnoremap <Leader>q<CR> :Bclose<CR>
+nnoremap <Leader>q!<CR> :Bclose!<CR>
 
 " Toggle folds with space
 nnoremap <space> za
@@ -29,10 +32,10 @@ inoremap jj <Esc>
 
 " NERDTree stuff
 nnoremap <Leader>ntb :NERDTreeFromBookmark
-nnoremap <Leader>nt :NERDTree<CR>
+nnoremap <Leader>nt<CR> :NERDTreeToggle<CR>
 
 " Edit vimrc ,ev
-nnoremap <silent> <Leader>ev :tabnew<CR>:e $MYVIMRC<CR>
+nnoremap <Leader>ev<CR> :e $MYVIMRC<CR>
 
 " Random stuff so vim behaves like a modern app
 set novisualbell
@@ -52,7 +55,12 @@ set laststatus=2
 set showcmd
 set showmatch
 set number
-colorscheme vividchalk
+set background=dark
+colorscheme ir_black
+set guifont=DejaVu_Sans_Mono:h10:cANSI
+" Hide toolbar and menu in gvim
+set guioptions-=T
+set guioptions-=m
 
 " Tabs
 set autoindent
@@ -68,6 +76,6 @@ set ignorecase
 
 " Tmp/Backups
 set backup
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
+set backupdir=$HOME/.vim/backup
+set directory=$HOME/.vim/tmp
 
