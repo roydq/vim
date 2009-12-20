@@ -8,7 +8,7 @@ set hidden
 let mapleader=","
 
 " Set quickbuf hotkey
-let g:qb_hotkey="t"
+let g:qb_hotkey="<Tab>"
 
 " For switching between splits
 nnoremap <Up> <C-w><Up>
