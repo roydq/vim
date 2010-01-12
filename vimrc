@@ -32,7 +32,7 @@ inoremap jj <Esc>
 
 " NERDTree stuff
 nnoremap <Leader>ntb :NERDTreeFromBookmark
-nnoremap <Leader>nt<CR> :NERDTreeToggle<CR>
+nnoremap <S-Tab> :NERDTreeToggle<CR>
 
 " Edit vimrc ,ev
 nnoremap <Leader>ev<CR> :e $MYVIMRC<CR>
@@ -73,10 +73,15 @@ set noexpandtab
 " Search Options 
 set incsearch
 set hlsearch
-set ignorecase
 
 " Tmp/Backups
 set backup
-set backupdir=$HOME/.vim/backup
-set directory=$HOME/.vim/tmp
+set backupdir=$VIM/vimfiles/backup
+set directory=$VIM/vimfiles/tmp
 
+" Auto change to current file's directory
+if exists('+autochdir')
+  set autochdir
+else
+  autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
