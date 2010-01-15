@@ -1,18 +1,17 @@
-This is what I use to work with rails in vim.  
-
 To use: create symbolic links to vim directory and vimrc in your home dir.
 
 Contains:
 
 rails.vim
-NERD_tree.vim
-tabbar.vim (most tab-like buffer manager i've found)
-bclose.vim (closes buffers without destroying window arrangement)
-vividchalk theme
+NERD_tree
+quickbuf
+bclose (closes buffers without destroying window arrangement)
+ir_black theme
 
-Config Settings:
+Keys:
 
 Arrows switch between splits (left right up down)
 Ctrl-right and Ctrl-left switch between next and prev buffers
 , is leader
-
+Tab brings up quickbuf buffer list
+Shift-Tab toggles nerd tree

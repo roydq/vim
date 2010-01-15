@@ -76,8 +76,13 @@ set hlsearch
 
 " Tmp/Backups
 set backup
-set backupdir=$HOME/.vim/backup
-set directory=$HOME/.vim/tmp
+if has('win32')
+	set backupdir=$VIM/vimfiles/backup
+	set directory=$VIM/vimfiles/tmp
+else
+	set backupdir=$HOME/.vim/backup
+	set directory=$HOME/.vim/tmp
+end
 
 " Auto change to current file's directory
 if exists('+autochdir')
