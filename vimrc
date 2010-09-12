@@ -66,7 +66,7 @@ endif
 set t_Co=256
 " Hide toolbar and menu in gvim
 set guioptions-=T
-set guioptions-=m
+set guioptions+=m
 
 " Tabs
 set autoindent
