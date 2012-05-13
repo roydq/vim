@@ -58,10 +58,12 @@ set number
 set background=dark
 colorscheme ir_black
 " font settings
-if has("unix")
-	set guifont="DejaVu Sans Mono 10"
+if has("mac")
+	set guifont=Menlo\ Regular:h14
+elseif has("unix")
+	set guifont="DejaVu Sans Mono 14"
 else 
-	set guifont=DejaVu_Sans_Mono:h10:cANSI
+	set guifont=DejaVu_Sans_Mono:h14:cANSI
 endif
 set t_Co=256
 " Hide toolbar and menu in gvim
