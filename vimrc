@@ -61,7 +61,7 @@ colorscheme ir_black
 if has("mac")
 	set guifont=Menlo\ Regular:h14
 elseif has("unix")
-	set guifont="DejaVu Sans Mono 14"
+	set guifont="Monospace 12"
 else 
 	set guifont=DejaVu_Sans_Mono:h14:cANSI
 endif
