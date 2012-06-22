@@ -59,7 +59,8 @@ set background=dark
 colorscheme ir_black
 " font settings
 if has("mac")
-	set guifont=Menlo\ Regular:h14
+	set guifont=Monaco:h14
+  set noantialias
 elseif has("unix")
 	set guifont="Monospace 12"
 else 
