@@ -4,6 +4,9 @@ filetype plugin indent on
 syntax on
 set hidden
 
+" Install pathogen
+call pathogen#infect()
+
 " Use a competent leader
 let mapleader=","
 
