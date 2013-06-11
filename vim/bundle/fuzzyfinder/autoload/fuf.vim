@@ -151,9 +151,14 @@ endfunction
 
 "
 function fuf#openFile(path, mode, reuse)
+<<<<<<< HEAD
   let bufNr     = bufnr('^' . a:path . '$')
   let bufLoaded = bufloaded(bufNr)
   if bufNr > -1 && bufLoaded > 0
+=======
+  let bufNr = bufnr('^' . a:path . '$')
+  if bufNr > -1
+>>>>>>> 47057f04e786893ad350b5c56115bb306881b0d1
     call fuf#openBuffer(bufNr, a:mode, a:reuse)
   else
     execute {
