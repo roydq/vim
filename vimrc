@@ -13,6 +13,11 @@ let mapleader=","
 " Set quickbuf hotkey
 let g:qb_hotkey="<Tab>"
 
+" Rubytest bindings
+map <Leader>[ <Plug>RubyTestRun
+map <Leader>] <Plug>RubyFileRun
+map <Leader>/ <Plug>RubyTestRunLast
+
 " For switching between splits
 nnoremap <Up> <C-w><Up>
 nnoremap <Down> <C-w><Down>
@@ -39,6 +44,12 @@ nnoremap <S-Tab> :NERDTreeToggle<CR>
 
 " Edit vimrc ,ev
 nnoremap <Leader>ev<CR> :e $MYVIMRC<CR>
+
+" Clear trailing whitespace
+nnoremap <Leader>cw :%s/\s\+$//<CR>
+
+" cd to current file's dir
+nnoremap <Leader>cd :cd %:p:h<CR>
 
 " Random stuff so vim behaves like a modern app
 set novisualbell
@@ -68,7 +79,7 @@ if has("mac")
   set noantialias
 elseif has("unix")
 	set guifont="Monospace 12"
-else 
+else
 	set guifont=DejaVu_Sans_Mono:h14:cANSI
 endif
 set t_Co=256
@@ -83,7 +94,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
-" Search Options 
+" Search Options
 set incsearch
 set hlsearch
 
@@ -91,8 +102,12 @@ set hlsearch
 set gdefault
 set autoread
 
+" flip the default split directions to sane ones
+set splitright
+set splitbelow
+
 " highlight trailing whitespace
-set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set listchars=tab:»·,trail:-,extends:>,precedes:<,nbsp:+
 set list
 
 " Tmp/Backups
@@ -104,13 +119,6 @@ else
 	set backupdir=$HOME/.vim/backup
 	set directory=$HOME/.vim/tmp
 end
-
-" Auto change to current file's directory
-"if exists('+autochdir')
-"  set autochdir
-"else
-"  autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
-"endif
 
 " Fuzzy finder for quickling opening files / buffers
 let g:fuf_coveragefile_prompt = '>GoToFile[]>'
