@@ -6,6 +6,7 @@ set hidden
 
 " Install pathogen
 call pathogen#infect()
+call pathogen#helptags()
 
 " Use a competent leader
 let mapleader=","
