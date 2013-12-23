@@ -134,3 +134,6 @@ nmap <Leader>t :FufCoverageFile<CR>
 nmap <Leader>b :FufBuffer<CR>
 nmap <Leader>f :FufRenewCache<CR>
 nmap <Leader>T :FufTagWithCursorWord!<CR>
+
+" Disable fucking bell
+set noeb vb t_vb=
