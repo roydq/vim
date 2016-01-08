@@ -8,6 +8,16 @@ set hidden
 call pathogen#infect()
 call pathogen#helptags()
 
+" Balloons are the worst
+if has("gui_running")
+  set noballooneval
+end
+
+" Silver searcher instead of ack
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 " Use a competent leader
 let mapleader=","
 

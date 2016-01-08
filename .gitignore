@@ -1,7 +1,7 @@
 .DS_Store
 thumbs.db
 log/*.log
-tmp/**/*
+tmp
 public/uploaded_images/*
 .loadpath
 db/*.sqlite3
