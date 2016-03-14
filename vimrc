@@ -86,12 +86,12 @@ colorscheme ir_black
 
 " font settings
 if has("mac")
-	set guifont=Monaco:h14
+  set guifont=Monaco:h14
   set noantialias
 elseif has("unix")
-	set guifont="Monospace 12"
+  set guifont="Monospace 12"
 else
-	set guifont=DejaVu_Sans_Mono:h14:cANSI
+  set guifont=DejaVu_Sans_Mono:h14:cANSI
 endif
 set t_Co=256
 " Hide toolbar and menu in gvim
@@ -124,11 +124,11 @@ set list
 " Tmp/Backups
 set backup
 if has('win32')
-	set backupdir=$VIM/vimfiles/backup
-	set directory=$VIM/vimfiles/tmp
+  set backupdir=$VIM/vimfiles/backup
+  set directory=$VIM/vimfiles/tmp
 else
-	set backupdir=$HOME/.vim/backup
-	set directory=$HOME/.vim/tmp
+  set backupdir=$HOME/.vim/backup
+  set directory=$HOME/.vim/tmp
 end
 
 " Fuzzy finder for quickling opening files / buffers
