@@ -71,7 +71,7 @@ set clipboard+=unnamed
 set mouse=a
 
 " Folding
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevelstart=99
 
 " Visual
