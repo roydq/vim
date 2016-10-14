@@ -7,15 +7,22 @@ set hidden
 " Install pathogen
 call pathogen#infect()
 call pathogen#helptags()
+" Tim Pope said to do this if you use pathogen
+set sessionoptions-=options
 
 " Balloons are the worst
 if has("gui_running")
   set noballooneval
 end
 
+" Set encoding to utf-8
+if &encoding ==# 'latin1' && has('gui_running')
+  set encoding=utf-8
+endif
+
 " Silver searcher instead of ack
 if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
 
 " Use a competent leader
@@ -98,6 +105,9 @@ set t_Co=256
 set guioptions-=T
 set guioptions+=m
 
+" ??
+set display+=lastline
+
 " Tabs
 set autoindent
 set softtabstop=2
@@ -121,6 +131,14 @@ set splitbelow
 set listchars=tab:»·,trail:-,extends:>,precedes:<,nbsp:+
 set list
 
+" Make history hueg
+if &history < 1000
+  set history=1000
+endif
+
+" Completion list for filename stuff?
+set wildmenu
+
 " Tmp/Backups
 set backup
 if has('win32')
@@ -130,6 +148,18 @@ else
   set backupdir=$HOME/.vim/backup
   set directory=$HOME/.vim/tmp
 end
+
+" Only complete using current file and included files
+set complete-=i
+
+" Set timeout on all keycodes
+set ttimeout
+set ttimeoutlen=100
+
+" Dunno, something to do with viminfo...
+if !empty(&viminfo)
+  set viminfo^=!
+endif
 
 " Fuzzy finder for quickling opening files / buffers
 let g:fuf_coveragefile_prompt = '>GoToFile[]>'
@@ -147,3 +177,12 @@ nmap <Leader>T :FufTagWithCursorWord!<CR>
 
 " Disable fucking bell
 set noeb vb t_vb=
+
+" Paste from 0 buffer, since yanks always go to 0.
+" Prevents annoying problem of paste always using the " register
+noremap <Leader>p "0p
+noremap <Leader>P "0P
+vnoremap <Leader>p "0p
+
+" Open NERDTree automatically
+autocmd VimEnter * NERDTreeToggle

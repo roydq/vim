@@ -39,7 +39,7 @@ endfunction
 
 " a:bufname:
 " a:height: Window height. If 0, default height is used.
-"           If less than 0, the window becomes full-screen. 
+"           If less than 0, the window becomes full-screen.
 " a:listener:
 "   a:listener.onClose(written)
 function l9#tempbuffer#openScratch(bufname, filetype, lines, topleft, vertical, height, listener)
@@ -99,6 +99,8 @@ function l9#tempbuffer#close(bufname)
     return
   endif
   execute printf('%dbdelete!', s:dataMap[a:bufname].bufNr)
+  "TODO: find a better/nicer solution
+  execute 'wincmd p'
 endfunction
 
 "
