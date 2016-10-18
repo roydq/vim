@@ -161,19 +161,10 @@ if !empty(&viminfo)
   set viminfo^=!
 endif
 
-" Fuzzy finder for quickling opening files / buffers
-let g:fuf_coveragefile_prompt = '>GoToFile[]>'
-let g:fuf_coveragefile_exclude = '\v\~$|' .
-\                                '\.(o|exe|dll|bak|swp|log|sqlite3|png|gif|jpg)$|' .
-\                                '(^|[/\\])\.(hg|git|bzr|bundle)($|[/\\])|' .
-\                                '(^|[/\\])(log|tmp|vendor|system|doc|coverage|build|generated|node_modules)($|[/\\])'
-
-let g:fuf_keyOpenTabpage = '<D-CR>'
-
-nmap <Leader>t :FufCoverageFile<CR>
-nmap <Leader>b :FufBuffer<CR>
-nmap <Leader>f :FufRenewCache<CR>
-nmap <Leader>T :FufTagWithCursorWord!<CR>
+" CtrlP fuzzy file finder
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_map = '<Leader>t'
+nmap <Leader>f :CtrlPClearCache<CR>
 
 " Disable fucking bell
 set noeb vb t_vb=
@@ -184,5 +175,7 @@ noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
 
-" Open NERDTree automatically
-autocmd VimEnter * NERDTreeToggle
+" Open NERDTree automatically in GUI mode
+if has("gui_running")
+  autocmd VimEnter * NERDTreeToggle
+endif
