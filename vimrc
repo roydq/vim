@@ -53,7 +53,7 @@ nnoremap <Leader>q!<CR> :Bclose!<CR>
 " Toggle folds with space
 nnoremap <space> za
 
-" Type jj to get out of insert mode!
+" Type jj to get out of insert mode
 inoremap jj <Esc>
 
 " NERDTree stuff
@@ -75,7 +75,9 @@ set noerrorbells
 set backspace=indent,eol,start
 set nowrap
 set clipboard+=unnamed
-set mouse=a
+
+" Disable mouse
+set mouse=
 
 " Folding
 set foldmethod=indent
@@ -105,7 +107,7 @@ set t_Co=256
 set guioptions-=T
 set guioptions+=m
 
-" ??
+" Show lines that don't fit, instead of @
 set display+=lastline
 
 " Tabs
@@ -119,9 +121,14 @@ set expandtab
 set incsearch
 set hlsearch
 
-" Other stuff
+" Always global replace
 set gdefault
+
+" Auto-reload file if changed externally
 set autoread
+
+" Allow cursor to go to end of line
+set virtualedit+=onemore
 
 " flip the default split directions to sane ones
 set splitright
@@ -175,7 +182,5 @@ noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
 
-" Open NERDTree automatically in GUI mode
-if has("gui_running")
-  autocmd VimEnter * NERDTreeToggle
-endif
+" Open NERDTree automatically
+autocmd VimEnter * NERDTreeToggle
