@@ -1,14 +1,56 @@
-" Gotta do these things
+" Enable modern vim mode
 set nocompatible
 filetype plugin indent on
 syntax on
 set hidden
 
-" Install pathogen
+" Random stuff so vim behaves like a modern app
+set noeb vb t_vb=
+set novisualbell
+set noerrorbells
+set backspace=indent,eol,start
+set nowrap
+set clipboard+=unnamed
+
+" Activate pathogen
 call pathogen#infect()
 call pathogen#helptags()
 " Tim Pope said to do this if you use pathogen
 set sessionoptions-=options
+
+" --- begin plugin settings
+
+" NERDTree stuff
+nnoremap <Leader>ntb :NERDTreeFromBookmark
+nnoremap <S-Tab> :NERDTreeToggle<CR>
+
+" Open NERDTree automatically
+autocmd VimEnter * NERDTreeToggle
+
+" CtrlP fuzzy file finder
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_switch_buffer = 'E'
+nmap <Leader>f :CtrlPClearCache<CR>
+
+" Tab to list buffers using CtrlP
+nnoremap <Tab> :CtrlPBuffer<CR>
+
+" Silver searcher instead of ack - for use with Ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+
+" Rubytest bindings
+map <Leader>[ <Plug>RubyTestRun
+map <Leader>] <Plug>RubyFileRun
+map <Leader>/ <Plug>RubyTestRunLast
+
+" --- end plugin settings
+
+" Use a competent leader
+let mapleader=","
 
 " Balloons are the worst
 if has("gui_running")
@@ -19,22 +61,6 @@ end
 if &encoding ==# 'latin1' && has('gui_running')
   set encoding=utf-8
 endif
-
-" Silver searcher instead of ack
-if executable('ag')
-  let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
-
-" Use a competent leader
-let mapleader=","
-
-" Set quickbuf hotkey
-let g:qb_hotkey="<Tab>"
-
-" Rubytest bindings
-map <Leader>[ <Plug>RubyTestRun
-map <Leader>] <Plug>RubyFileRun
-map <Leader>/ <Plug>RubyTestRunLast
 
 " For switching between splits
 nnoremap <Up> <C-w><Up>
@@ -56,10 +82,6 @@ nnoremap <space> za
 " Type jj to get out of insert mode
 inoremap jj <Esc>
 
-" NERDTree stuff
-nnoremap <Leader>ntb :NERDTreeFromBookmark
-nnoremap <S-Tab> :NERDTreeToggle<CR>
-
 " Edit vimrc ,ev
 nnoremap <Leader>ev<CR> :e $MYVIMRC<CR>
 
@@ -68,13 +90,6 @@ nnoremap <Leader>cw :%s/\s\+$//<CR>
 
 " cd to current file's dir
 nnoremap <Leader>cd :cd %:p:h<CR>
-
-" Random stuff so vim behaves like a modern app
-set novisualbell
-set noerrorbells
-set backspace=indent,eol,start
-set nowrap
-set clipboard+=unnamed
 
 " Disable mouse
 set mouse=
@@ -90,6 +105,7 @@ set showcmd
 set showmatch
 set number
 
+" Color scheme
 set background=dark
 colorscheme ir_black
 
@@ -128,7 +144,7 @@ set gdefault
 set autoread
 
 " Allow cursor to go to end of line
-set virtualedit+=onemore
+" set virtualedit+=onemore
 
 " flip the default split directions to sane ones
 set splitright
@@ -138,10 +154,8 @@ set splitbelow
 set listchars=tab:»·,trail:-,extends:>,precedes:<,nbsp:+
 set list
 
-" Make history hueg
-if &history < 1000
-  set history=1000
-endif
+" Make history big
+set history=10000
 
 " Completion list for filename stuff?
 set wildmenu
@@ -168,19 +182,8 @@ if !empty(&viminfo)
   set viminfo^=!
 endif
 
-" CtrlP fuzzy file finder
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_map = '<Leader>t'
-nmap <Leader>f :CtrlPClearCache<CR>
-
-" Disable fucking bell
-set noeb vb t_vb=
-
 " Paste from 0 buffer, since yanks always go to 0.
 " Prevents annoying problem of paste always using the " register
 noremap <Leader>p "0p
 noremap <Leader>P "0P
 vnoremap <Leader>p "0p
-
-" Open NERDTree automatically
-autocmd VimEnter * NERDTreeToggle
