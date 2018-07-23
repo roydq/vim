@@ -24,9 +24,6 @@ set sessionoptions-=options
 nnoremap <Leader>ntb :NERDTreeFromBookmark
 nnoremap <S-Tab> :NERDTreeToggle<CR>
 
-" Open NERDTree automatically
-autocmd VimEnter * NERDTreeToggle
-
 " CtrlP fuzzy file finder
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_map = '<Leader>t'
